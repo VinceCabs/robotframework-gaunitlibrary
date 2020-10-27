@@ -7,8 +7,8 @@ class GAUnitLibrary:
     ROBOT_LIBRARY_VERSION = __version__
     ROBOT_LIBRARY_SCOPE = "GLOBAL"
 
-    def __init__(self, tracking_plan="tracking_plan.json") -> None:
-        self.g = GAUnit(tracking_plan=tracking_plan)
-
-    def check_tracking_from_har(self, test_case: str, har: dict) -> list:
-        return self.g.check_tracking_from_har(test_case, har)
+    def check_tracking_from_har(
+        self, test_case: str, har: dict, tracking_plan="tracking_plan.json"
+    ) -> list:
+        g = GAUnit(tracking_plan=tracking_plan)
+        return g.check_tracking_from_har(test_case, har)
