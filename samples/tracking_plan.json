@@ -1,0 +1,36 @@
+{
+    "base_url": "https://particuliers.engie.fr",
+    "version": "0.1",
+    "test_cases": {
+        "home_engie": {
+            "description": "entre dans tunnel de sousc. depuis la home",
+            "author": "VinceCabs",
+            "hits": [
+                {
+                    "t": "pageview",
+                    "dp": "engie_fournisseur_d_electricite_et_de_gaz_naturel"
+                },
+                {
+                    "t": "event",
+                    "ec": "actions_diverses",
+                    "ea": "clics_internes-divers",
+                    "el": "souscrire_a_une_offre_d_energie"
+                },
+                {
+                    "t": "pageview",
+                    "dp": "apps/tunnel_de_souscription_v3/etape_1_projet"
+                }
+            ]
+        },
+        "demenagement": {
+            "description": "affiche page déménagement",
+            "author": "VinceCabs",
+            "hits": [
+                {
+                    "t": "pageview",
+                    "dp": "vous_demenagez"
+                }
+            ]
+        }
+    }
+}

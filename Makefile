@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-SRC_FILES = ./GAUnitLibrary ./tests setup.py
+SRC_FILES = ./GAUnitLibrary ./tests ./samples setup.py
 
 ##### Dev
 
