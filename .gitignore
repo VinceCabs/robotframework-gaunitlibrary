@@ -1,0 +1,33 @@
+
+## Project related
+.wip
+
+# Python, VS Code, Eclipse
+.venv
+**/__pycache__
+*.pyc
+.vscode
+.project
+.pydevproject
+
+# Webdrivers
+**chromedriver*
+**geckodriver*
+
+# Robot Framework
+log.html
+output.xml
+report.html
+
+# log and other artifacts
+*_log.json
+*.log
+!tests/*.log
+*.har
+!tests/*.har
+*.png
+
+# packaging
+dist/
+*.egg-info/
+build/
