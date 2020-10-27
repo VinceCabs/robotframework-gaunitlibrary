@@ -16,7 +16,7 @@ with io.open(os.path.join(here, "requirements", "base.in"), "r", encoding="utf-8
     requirements = [line.strip() for line in f]
 
 setuptools.setup(
-    name="robotframework-gaunit",
+    name="robotframework-gaunitlibrary",
     version=about["__version__"],
     author="Vincent Cabanis",
     author_email="touch@cabanis.fr",
