@@ -1,9 +1,11 @@
 .DEFAULT_GOAL := help
 SRC_FILES = ./GAUnitLibrary ./tests ./samples setup.py
+MAIN_SRC = GAUnitLibrary
+PACKAGE = robotframework-gaunitlibrary
 
 ##### Dev
 
-pip-comp: ## * Compile requirements files
+pip-comp: ## Compile requirements files
 	pip-compile requirements/base.in
 	pip-compile requirements/dev.in
 
@@ -19,7 +21,7 @@ install-dev: ## * Install dev requirements
 clean-logs:  ## Remove all log & RF report files
 	rm *.log log.html output.xml report.html || true
 
-tests : test-robot test-lint test-format ## Run all tests
+tests : test-robot test-lint test-format test-package ## Run all tests
 
 test-format: ## Run code formatting tests
 	black --check --diff $(SRC_FILES)
@@ -30,7 +32,10 @@ test-lint: ## Run code linting tests
 test-robot:  ## Run RobotFramework library
 	robot tests/test_home_engie.robot
 
-format: ## Format code
+test-package: build-package ## Test that package can be uploaded to pypi
+	twine check dist/${PACKAGE}-$(shell make version).tar.gz
+
+format: ## * Format code
 	black $(SRC_FILES)
 
 ##### Use & Deploy
@@ -42,10 +47,27 @@ install-minimal: ## Install minimal usage requirements
 build-package:   ## Build a python package ready to upload to pypi
 	python setup.py sdist bdist_wheel
 
-push-package: ## Push python packages to pypi
-	python -m twine upload --skip-existing dist/*
+push-package: build-package test-package ## * Push python packages to pypi
+	python -m twine upload --skip-existing dist/${PACKAGE}-*.tar.gz
+
+release: tests ## * Create a release tag and push it to repos
+	$(MAKE) retag release-public TAG=v$(shell make version)
+
+retag:
+	@echo "=== Creating tag $(TAG)"
+	git tag -d $(TAG) || true
+	git tag $(TAG)
+
+release-public:
+	@echo "=== Pushing tag $(TAG) to public"
+	git push public
+	git push public :$(TAG) || true
+	git push public $(TAG)
 
 ###### Additional commands
+
+version: ## Print the current tutor version
+	@python -c 'import io, os; about = {}; exec(io.open(os.path.join("${MAIN_SRC}", "__about__.py"), "rt", encoding="utf-8").read(), about); print(about["__version__"])'
 
 ESCAPE = 
 help: ## Print this help
