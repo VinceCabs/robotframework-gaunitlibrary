@@ -4,7 +4,7 @@ GAUnitLibrary is a [Robot Framework](http://robotframework.org/) library to inte
 
 ## Installation
 
-- Follow [GAUnit](https://github.com/VinceCabs/ga-unit#installation) installation instructions.
+- Follow [GAUnit](https://github.com/VinceCabs/gaunit#installation) installation instructions.
 - Install Library :
 
 ```sh
