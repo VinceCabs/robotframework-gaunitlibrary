@@ -23,7 +23,7 @@ setuptools.setup(
     description="GAUnitLibrary is a Robot Framework library to interface with GAUnit",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    # url="",
+    url="https://github.com/VinceCabs/robotframework-gaunitlibrary",
     packages=["GAUnitLibrary"],
     license="MIT",
     python_requires=">=3.6",
