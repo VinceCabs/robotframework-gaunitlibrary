@@ -10,6 +10,7 @@ Suite Teardown              Close Browsers
 # ${PAGE_URL}                 https://particuliers.engie.fr?env_work=acc
 ${PAGE_URL}                 https://particuliers.engie.fr
 ${bouton_souscription}      xpath=//*[@id='engie_fournisseur_d_electricite_et_de_gaz_naturel_headerhp_souscrire_a_une_offre_d_energie']
+${tracking_plan}            ${CURDIR}/tracking_plan.json
 
 *** Keywords ***
 Start_Proxy
@@ -30,6 +31,7 @@ Start_Proxy
     ${options.add_argument}=  Set Variable  --disable-web-security
     ${options.add_argument}=  Set Variable  --ignore-certificate-errors
     Create WebDriver    Chrome     chrome_options=${options}
+    
 Close Browsers
     Close All Browsers
     Stop Local Server
@@ -41,5 +43,5 @@ home_engie
     Go To    ${PAGE_URL}
     Click Element    ${bouton_souscription}
     ${har} =            Get Har As Json
-    ${checklist} =      Check Tracking From HAR     ${TEST NAME}    ${har}
+    ${checklist} =      Check Tracking From HAR     ${TEST NAME}    ${har}   ${tracking_plan}
     Should Not Contain   ${checklist}  ${False}
