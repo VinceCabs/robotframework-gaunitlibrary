@@ -12,7 +12,8 @@ pip-up: ## Update requirements files
 	pip-compile --upgrade requirements/dev.in
 
 install-dev: ## * Install dev requirements
-	pip install .
+	pip install -e .
+	pip install --upgrade gaunit
 	pip install -r requirements/dev.txt
 
 clean-logs:  ## Remove all log & RF report files
