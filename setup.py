@@ -11,9 +11,6 @@ with io.open(
     exec(f.read(), about)
 with io.open("README.md", "r", encoding="utf8") as f:
     long_description = f.read()
-requirements = []
-with io.open(os.path.join(here, "requirements", "base.in"), "r", encoding="utf-8") as f:
-    requirements = [line.strip() for line in f]
 
 setuptools.setup(
     name="robotframework-gaunitlibrary",
@@ -27,7 +24,7 @@ setuptools.setup(
     packages=["GAUnitLibrary"],
     license="MIT",
     python_requires=">=3.6",
-    install_requires=requirements,
+    install_requires=["gaunit"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Programming Language :: Python :: 3",
