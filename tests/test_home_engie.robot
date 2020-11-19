@@ -9,7 +9,7 @@ ${tracking_plan}    ./tests/tracking_plan.json
 Tracking Should be Correct
     [Documentation]  takes the name of a Test case and a har file for inputs and check if tracking is correct
     [Arguments]     ${test_case}    ${har}
-    ${checklist} =      Check Tracking From HAR     ${test_case}    ${har}   tracking_plan=${tracking_plan}
+    ${checklist} =      Check Tracking From HAR     ${test_case}   ${tracking_plan}  ${har}
     Should Not Contain   ${checklist}  ${False} 
 
 *** Test Cases ***

@@ -1,5 +1,5 @@
 from .__about__ import __version__
-from gaunit.GAUnit import GAUnit
+import gaunit
 
 
 class GAUnitLibrary:
@@ -8,7 +8,7 @@ class GAUnitLibrary:
     ROBOT_LIBRARY_SCOPE = "GLOBAL"
 
     def check_tracking_from_har(
-        self, test_case: str, har: dict, tracking_plan="tracking_plan.json"
+        self, test_case: str, tracking_plan: str, har: str
     ) -> list:
-        g = GAUnit(tracking_plan=tracking_plan)
-        return g.check_tracking_from_har(test_case, har)
+        r = gaunit.check_har(test_case, tracking_plan, har=har)
+        return r.checklist_trackers

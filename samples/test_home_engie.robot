@@ -43,5 +43,5 @@ home_engie
     Go To    ${PAGE_URL}
     Click Element    ${bouton_souscription}
     ${har} =            Get Har As Json
-    ${checklist} =      Check Tracking From HAR     ${TEST NAME}    ${har}   ${tracking_plan}
+    ${checklist} =      Check Tracking From HAR    ${TEST NAME}   ${tracking_plan}  ${har}
     Should Not Contain   ${checklist}  ${False}
