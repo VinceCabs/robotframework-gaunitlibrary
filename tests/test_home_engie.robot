@@ -1,19 +1,14 @@
 *** Settings ***
-Library                     OperatingSystem
-Library                     GAUnitLibrary
+Library    OperatingSystem
+Library    GAUnitLibrary
 
 *** Variables ***
-${tracking_plan}    ./tests/tracking_plan.json
-
-*** Keywords ***
-Tracking Should be Correct
-    [Documentation]  takes the name of a Test case and a har file for inputs and check if tracking is correct
-    [Arguments]     ${test_case}    ${har}
-    ${checklist} =      Check Tracking From HAR     ${test_case}   ${tracking_plan}  ${har}
-    Should Not Contain   ${checklist}  ${False} 
+${tracking_plan}    ${CURDIR}/tracking_plan.json
+${har_file}         ${CURDIR}/home_engie.har
 
 *** Test Cases ***
 home_engie
-    ${json}=     Get File    ./tests/home_engie.har
-    ${har}=     Evaluate    json.loads('''${json}''')   json
-    Tracking Should be Correct   ${TEST NAME}    ${har}
+    ${json}=              Get File                   ${har_file}
+    ${har}=               Evaluate                   json.loads('''${json}''')    json
+    ${checklist} =        Check Tracking From HAR    ${TEST_NAME}                 ${tracking_plan}    ${har}
+    Should Not Contain    ${checklist}               ${False} 
