@@ -30,7 +30,7 @@ test-lint: ## Run code linting tests
 	pylint --errors-only ${SRC_FILES}
 
 test-robot:  ## Run RobotFramework library
-	robot tests/test_home_engie.robot
+	robot tests/test_gaunitlibrary.robot
 
 test-package: build-package ## Test that package can be uploaded to pypi
 	twine check dist/${PACKAGE}-$(shell make version).tar.gz
