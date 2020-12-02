@@ -41,6 +41,7 @@ home_engie
     set selenium implicit wait    10
     New Har    ${TEST NAME}
     Go To    ${PAGE_URL}
+    Sleep   3
     Click Element    ${bouton_souscription}
     ${har} =            Get Har As Json
     ${checklist} =      Check Tracking From HAR    ${TEST NAME}   ${tracking_plan}  ${har}

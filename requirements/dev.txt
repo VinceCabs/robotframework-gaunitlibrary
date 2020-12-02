@@ -14,17 +14,17 @@ chardet==3.0.4            # via requests
 click==7.1.2              # via black, pip-tools
 colorama==0.4.4           # via gaunit, pylint, twine
 docutils==0.16            # via readme-renderer
-gaunit==0.1.1             # via -r requirements\base.in
+gaunit==0.1.4             # via -r requirements\base.in
 idna==2.10                # via requests
-importlib-metadata==2.0.0  # via keyring, twine
+importlib-metadata==3.1.1  # via keyring, twine
 isort==5.6.4              # via pylint
 keyring==21.5.0           # via twine
 lazy-object-proxy==1.4.3  # via astroid
 mccabe==0.6.1             # via pylint
 mypy-extensions==0.4.3    # via black
-packaging==20.4           # via bleach
+packaging==20.7           # via bleach
 pathspec==0.8.1           # via black
-pip-tools==5.3.1          # via -r requirements/dev.in
+pip-tools==5.4.0          # via -r requirements/dev.in
 pkginfo==1.6.1            # via twine
 pygments==2.7.2           # via readme-renderer
 pylint==2.6.0             # via -r requirements/dev.in
@@ -41,9 +41,9 @@ robotframework-requests==0.7.2  # via -r requirements\base.in
 robotframework-seleniumlibrary==4.5.0  # via -r requirements\base.in
 robotframework==3.2.2     # via -r requirements\base.in, robotframework-browsermobproxylibrary, robotframework-requests, robotframework-seleniumlibrary
 selenium==3.141.0         # via robotframework-seleniumlibrary
-six==1.15.0               # via astroid, bleach, packaging, pip-tools, readme-renderer
+six==1.15.0               # via astroid, bleach, pip-tools, readme-renderer
 toml==0.10.2              # via black, pylint
-tqdm==4.52.0              # via twine
+tqdm==4.54.0              # via twine
 twine==3.2.0              # via -r requirements/dev.in
 typed-ast==1.4.1          # via astroid, black
 typing-extensions==3.7.4.3  # via black

@@ -8,7 +8,7 @@ class GAUnitLibrary:
     ROBOT_LIBRARY_SCOPE = "GLOBAL"
 
     def check_tracking_from_har(
-        self, test_case: str, tracking_plan: str, har: str
+        self, test_case: str, tracking_plan: str, har: dict
     ) -> list:
         r = gaunit.check_har(test_case, tracking_plan, har=har)
-        return r.checklist_trackers
+        return r.checklist_expected

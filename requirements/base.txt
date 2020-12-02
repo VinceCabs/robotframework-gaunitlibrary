@@ -8,7 +8,7 @@ browsermob-proxy==0.8.0   # via robotframework-browsermobproxylibrary
 certifi==2020.11.8        # via requests
 chardet==3.0.4            # via requests
 colorama==0.4.4           # via gaunit
-gaunit==0.1.1             # via -r requirements/base.in
+gaunit==0.1.4             # via -r requirements/base.in
 idna==2.10                # via requests
 requests==2.25.0          # via browsermob-proxy, robotframework-requests
 robotframework-browsermobproxylibrary==0.1.3  # via -r requirements/base.in
