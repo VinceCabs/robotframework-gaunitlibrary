@@ -31,5 +31,7 @@ home_engie
     Sleep                         3
     Click Element                 ${bouton_souscription}
     Sleep                         1
-    ${checklist} =                Check Tracking From Perf Log    ${TEST NAME}    ${tracking_plan} 
-    Should Not Contain            ${checklist}                    ${False}
+    ${checklist} =                Check Tracking From Perf Log       ${TEST NAME}    ${tracking_plan} 
+    Should Not Contain            ${checklist}                       ${False}
+    Log                           Test Get Status Expected Events
+    Log                           Test Get Status Actual Events

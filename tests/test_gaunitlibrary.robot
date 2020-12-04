@@ -1,11 +1,12 @@
 *** Settings ***
-Library    OperatingSystem
-Library    GAUnitLibrary
+Library      OperatingSystem
+Library      GAUnitLibrary
+Variables    test_vars.py
 
 *** Variables ***
 ${tracking_plan}    ${CURDIR}/tracking_plan.json
-${har_file}         ${CURDIR}/home_engie.har
-${test_case}        home_engie
+${har_file}         ${CURDIR}/mock.har
+${test_case}        mock_test_case
 
 
 *** Test Cases ***
@@ -16,10 +17,16 @@ Test Check Tracking From HAR
     Should Not Contain    ${checklist}               ${False} 
 
 Test Get Status Expected Events
-    ${json}=                       Get File                      ${har_file}
-    ${har}=                        Evaluate                      json.loads('''${json}''')    json
-    Check Tracking From HAR        ${test_case}                  ${tracking_plan}             ${har}
-    ${expected}=                   Get Status Expected Events
-    Log                            ${expected}
-    ${length}=                     Get length                    ${expected}
-    Should Be Equal As Integers    ${length}                     3
+    ${json}=                   Get File                      ${har_file}
+    ${har}=                    Evaluate                      json.loads('''${json}''')    json
+    Check Tracking From HAR    ${test_case}                  ${tracking_plan}             ${har}
+    ${expected}=               Get Status Expected Events
+    Should Be Equal            ${expected}                   ${expected_events}    # result defined in test_vars.py
+
+Test Get Status Actual Events
+    ${json}=                   Get File                    ${har_file}
+    ${har}=                    Evaluate                    json.loads('''${json}''')    json
+    Check Tracking From HAR    ${test_case}                ${tracking_plan}             ${har}
+    ${actual}=                 Get Status Actual Events    url=False
+    Should Be Equal            ${actual}                   ${actual_events}      # result defined in var.py
+
