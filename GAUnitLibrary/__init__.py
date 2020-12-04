@@ -1,3 +1,5 @@
+import json
+
 import gaunit
 from robot.libraries.BuiltIn import BuiltIn
 
@@ -43,16 +45,23 @@ class GAUnitLibrary:
         self.result = r
         return r.checklist_expected
 
-    def get_status_expected_events(self) -> list:
+    def get_status_expected_events(self) -> str:
 
         r = self.result
         if r:
-            return r.get_status_expected_events()
+            return json.dumps(r.get_status_expected_events(), indent=4)
+        else:
+            return None
+
+    def get_status_actual_events(self, url=True) -> str:
+
+        r = self.result
+        if r:
+            return json.dumps(r.get_status_actual_events(url=url), indent=4)
         else:
             return None
 
     def _get_perf_log(self):
-
         # get Performance Log from current webdriver instance
         perf_log = (
             BuiltIn()
