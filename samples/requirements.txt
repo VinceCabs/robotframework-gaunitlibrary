@@ -1,0 +1,5 @@
+robotframework
+robotframework-gaunitlibrary
+robotframework-seleniumlibrary
+robotframework-browsermobproxylibrary
+robotframework-requests

@@ -3,7 +3,7 @@
     "version": "0.1",
     "test_cases": {
         "home_engie": {
-            "description": "entre dans tunnel de sousc. depuis la home",
+            "description": "from homepage, enters conversion funnel",
             "author": "VinceCabs",
             "hits": [
                 {
@@ -22,13 +22,13 @@
                 }
             ]
         },
-        "demenagement": {
-            "description": "affiche page déménagement",
+        "g_merch_store_home": {
             "author": "VinceCabs",
             "hits": [
                 {
                     "t": "pageview",
-                    "dp": "vous_demenagez"
+                    "dl": "https://shop.googlemerchandisestore.com/",
+                    "dt": "Home"
                 }
             ]
         }
