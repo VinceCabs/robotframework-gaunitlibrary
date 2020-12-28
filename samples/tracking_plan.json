@@ -5,7 +5,7 @@
         "home_engie": {
             "description": "from homepage, enters conversion funnel",
             "author": "VinceCabs",
-            "hits": [
+            "events": [
                 {
                     "t": "pageview",
                     "dp": "engie_fournisseur_d_electricite_et_de_gaz_naturel"

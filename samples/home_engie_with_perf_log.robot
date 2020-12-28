@@ -37,6 +37,6 @@ home_engie
 
     # log results
     ${expected}=    Get Status Expected Events
-    ${actual}=      Get Status Actual Events      url=False
+    ${actual}=      Get Status Actual Events
     Log             ${expected}
     Log             ${actual}

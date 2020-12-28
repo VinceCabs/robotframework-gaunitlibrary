@@ -5,4 +5,4 @@
 #    pip-compile requirements/base.in
 #
 colorama==0.4.4           # via gaunit
-gaunit==0.1.5             # via -r requirements/base.in
+gaunit==0.2.1             # via -r requirements/base.in

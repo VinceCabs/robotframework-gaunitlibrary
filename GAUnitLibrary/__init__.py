@@ -53,11 +53,11 @@ class GAUnitLibrary:
         else:
             return None
 
-    def get_status_actual_events(self, url=True) -> str:
+    def get_status_actual_events(self) -> str:
 
         r = self.result
         if r:
-            return json.dumps(r.get_status_actual_events(url=url), indent=4)
+            return json.dumps(r.get_status_actual_events(), indent=4)
         else:
             return None
 

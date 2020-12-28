@@ -1,20 +1,20 @@
 expected_events = """[
     {
-        "hit": {
+        "event": {
             "t": "pageview",
             "dp": "A"
         },
         "found": true
     },
     {
-        "hit": {
+        "event": {
             "t": "pageview",
             "dp": "B"
         },
         "found": true
     },
     {
-        "hit": {
+        "event": {
             "t": "pageview",
             "dp": "C"
         },
@@ -24,7 +24,7 @@ expected_events = """[
 
 actual_events = """[
     {
-        "hit": {
+        "event": {
             "v": "1",
             "t": "pageview",
             "dp": "A"
@@ -32,7 +32,7 @@ actual_events = """[
         "expected": true
     },
     {
-        "hit": {
+        "event": {
             "v": "1",
             "t": "pageview",
             "dp": "B"
@@ -40,7 +40,7 @@ actual_events = """[
         "expected": true
     },
     {
-        "hit": {
+        "event": {
             "v": "1",
             "t": "pageview",
             "dp": "C"

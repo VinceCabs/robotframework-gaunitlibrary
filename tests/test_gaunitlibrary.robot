@@ -21,12 +21,12 @@ Test Get Status Expected Events
     ${har}=                    Evaluate                      json.loads('''${json}''')    json
     Check Tracking From HAR    ${test_case}                  ${tracking_plan}             ${har}
     ${expected}=               Get Status Expected Events
-    Should Be Equal            ${expected}                   ${expected_events}    # result defined in test_vars.py
+    Should Be Equal            ${expected}                   ${expected_events}           # result defined in test_vars.py
 
 Test Get Status Actual Events
     ${json}=                   Get File                    ${har_file}
     ${har}=                    Evaluate                    json.loads('''${json}''')    json
     Check Tracking From HAR    ${test_case}                ${tracking_plan}             ${har}
-    ${actual}=                 Get Status Actual Events    url=False
-    Should Be Equal            ${actual}                   ${actual_events}      # result defined in var.py
+    ${actual}=                 Get Status Actual Events
+    Should Be Equal            ${actual}                   ${actual_events}             # result defined in test_vars.py
 

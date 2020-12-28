@@ -24,7 +24,7 @@ setuptools.setup(
     packages=["GAUnitLibrary"],
     license="MIT",
     python_requires=">=3.6",
-    install_requires=["gaunit>=0.1"],
+    install_requires=["gaunit>=0.2.1"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Programming Language :: Python :: 3",

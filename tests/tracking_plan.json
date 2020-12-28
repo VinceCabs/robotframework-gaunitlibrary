@@ -1,7 +1,7 @@
 {
     "test_cases": {
         "mock_test_case": {
-            "hits": [
+            "events": [
                 {
                     "t": "pageview",
                     "dp": "A"
