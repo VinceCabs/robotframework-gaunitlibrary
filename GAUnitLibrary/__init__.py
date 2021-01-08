@@ -32,18 +32,20 @@ class GAUnitLibrary:
         | ${checklist} =       | `Check Tracking From HAR` | ${TEST NAME} | ${tracking_plan} | ${har}
         | `Should Not Contain` | ${checklist}              | ${False}
         """
-        r = gaunit.check_har(test_case, tracking_plan, har=har)
+        tp = gaunit.TrackingPlan.from_json(tracking_plan)
+        r = gaunit.check_har(test_case, tp, har=har)
         # store result in class instance for further use
         self.result = r
-        return r.checklist_expected
+        return r.checklist_expected_events
 
     def check_tracking_from_perf_log(self, test_case: str, tracking_plan: str) -> list:
 
         perf_log = self._get_perf_log()
-        r = gaunit.check_perf_log(test_case, tracking_plan, perf_log)
+        tp = gaunit.TrackingPlan.from_json(tracking_plan)
+        r = gaunit.check_perf_log(test_case, tp, perf_log)
         # store result in class instance for further use
         self.result = r
-        return r.checklist_expected
+        return r.checklist_expected_events
 
     def get_status_expected_events(self) -> str:
 
