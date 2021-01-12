@@ -21,16 +21,6 @@
                     "dp": "apps/tunnel_de_souscription_v3/etape_1_projet"
                 }
             ]
-        },
-        "g_merch_store_home": {
-            "author": "VinceCabs",
-            "hits": [
-                {
-                    "t": "pageview",
-                    "dl": "https://shop.googlemerchandisestore.com/",
-                    "dt": "Home"
-                }
-            ]
         }
     }
 }
