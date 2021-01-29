@@ -1,0 +1,12 @@
+language: python
+python:
+  - '3.9'
+  - '3.7'
+before_install:
+  - python --version
+  - pip install --upgrade pip setuptools==44.0.0
+install:
+  - make install-dev # install package + test dependencies
+script: 
+  - make tests # run tests
+  
