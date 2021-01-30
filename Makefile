@@ -5,18 +5,23 @@ PACKAGE = robotframework-gaunitlibrary
 
 ##### Dev
 
-pip-comp: ## Compile requirements files
+pip-comp: ## Compile requirements files (all layers)
 	pip-compile requirements/base.in
+	pip-compile requirements/samples.in
 	pip-compile requirements/dev.in
 
-pip-up: ## Update requirements files
+pip-up: ## Update requirements files (all layers)
 	pip-compile --upgrade requirements/base.in
+	pip-compile --upgrade requirements/samples.int
 	pip-compile --upgrade requirements/dev.in
+
+install-samples: ## Install samples requirements
+	pip install -e .
+	pip-sync requirements/samples.txt
 
 install-dev: ## * Install dev requirements
 	pip install -e .
-	pip install --upgrade gaunit
-	pip install -r requirements/dev.txt
+	pip-sync requirements/dev.txt
 
 clean-logs:  ## Remove all log & RF report files
 	rm *.log log.html output.xml report.html || true

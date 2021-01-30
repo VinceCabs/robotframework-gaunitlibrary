@@ -23,7 +23,7 @@ We can use BrowserMob Proxy library to intercept Google Analytics events.
 - Install these libraries :
 
     ```sh
-    pip install -r samples/requirements.txt
+    pip install -r requirements/samples.txt
     ```
 
 - Run the test
