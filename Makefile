@@ -12,16 +12,16 @@ pip-comp: ## Compile requirements files (all layers)
 
 pip-up: ## Update requirements files (all layers)
 	pip-compile --upgrade requirements/base.in
-	pip-compile --upgrade requirements/samples.int
+	pip-compile --upgrade requirements/samples.in
 	pip-compile --upgrade requirements/dev.in
 
 install-samples: ## Install samples requirements
 	pip install -e .
-	pip-sync requirements/samples.txt
+	pip install -r requirements/samples.txt
 
 install-dev: ## * Install dev requirements
 	pip install -e .
-	pip-sync requirements/dev.txt
+	pip install -r requirements/dev.txt
 
 clean-logs:  ## Remove all log & RF report files
 	rm *.log log.html output.xml report.html || true
