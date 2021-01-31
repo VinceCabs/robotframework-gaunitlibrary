@@ -16,17 +16,19 @@ pip-up: ## Update requirements files (all layers)
 	pip-compile --upgrade requirements/dev.in
 
 install-samples: ## Install samples requirements
+	pip install pip-tools
+	pip-sync requirements/samples.txt
 	pip install -e .
-	pip install -r requirements/samples.txt
 
 install-dev: ## * Install dev requirements
+	pip install pip-tools
+	pip-sync requirements/dev.txt
 	pip install -e .
-	pip install -r requirements/dev.txt
 
 clean-logs:  ## Remove all log & RF report files
 	rm *.log log.html output.xml report.html || true
 
-tests : test-robot test-lint test-format test-package ## Run all tests
+tests : install-dev test-robot test-lint test-format test-package ## Run all tests
 
 test-format: ## Run code formatting tests
 	black --check --diff $(SRC_FILES)
