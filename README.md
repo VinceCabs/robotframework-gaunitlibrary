@@ -2,20 +2,21 @@
 
 [![Build Status](https://travis-ci.org/VinceCabs/robotframework-gaunitlibrary.svg?branch=master)](https://travis-ci.org/VinceCabs/robotframework-gaunitlibrary)
 
-GAUnitLibrary is a [Robot Framework](http://robotframework.org/) library to interface with [GAUnit](https://pypi.org/project/gaunit/).
+GAUnitLibrary is a [Robot Framework](http://robotframework.org/) library to interface with [GAUnit](https://github.com/VinceCabs/GAUnit).
 
 ## Installation
 
+Use pip:
+
 ```sh
-pip3 install robotframework-gaunitlibrary  # Linux
-pip install robotframework-gaunitlibrary  # Windows
+pip install robotframework-gaunitlibrary
 ```
 
 ## Run your first tests (full working samples)
 
 ### Automated test with a proxy
 
-We can use BrowserMob Proxy library to intercept Google Analytics events.
+You can use BrowserMob Proxy library to intercept Google Analytics events.
 
 - Download **BrowserMob Proxy** [latest release](https://github.com/lightbody/browsermob-proxy/releases) (note: install [Java](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)).
   - add `bin/` directory to your %PATH
@@ -34,10 +35,12 @@ We can use BrowserMob Proxy library to intercept Google Analytics events.
     robot samples/home_engie_with_proxy.robot
     ```
 
-### Automated test with Performance Log (Chrome only)
+### Launch a manual browsing session to test events
 
-Intercept GA events without a proxy. More details [here](https://github.com/VinceCabs/GAUnit#automated-test-with-performance-log-chrome-only)
+- Follow same install instructions as above.
 
-```sh
-robot samples/home_engie_with_perf_log.robot
-```
+- Run the test
+
+    ```sh
+    robot samples/manual_browsing.robot
+    ```
